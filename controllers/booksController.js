@@ -70,12 +70,12 @@ export const deleteBook = asyncHandler(async (req, res) => {
 // UPDATE BOOK
 export const updateBook = asyncHandler(async (req, res) => {
     const { id } = req.params;
-    const { titleBook, description, year, author, category, thumbnail } = req.body;
+    const { title, description, year, author, category, thumbnail } = req.body;
 
     try {
         const book = await Books.findById( id );
         if (book) {
-            book.title = titleBook || book.title;
+            book.title = title || book.title;
             book.description = description || book.description;
             book.year = year || book.year;
             book.author = author || book.author;
